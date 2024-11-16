@@ -1,3 +1,4 @@
+<!-- Index.html file -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,30 +8,21 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
           href="style.css">
-    <title>QR Code Scanner / Reader</title>
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <title>QR Code Scanner / Reader
+    </title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Wallet QR Code Scanner:</h1>
-        <h1>Identify and Return</h1>
-        
-        
-
+        <h1>Scan QR Codes</h1>
         <div class="section">
-            <div>
-                <input type="text" id="qr-scan" class="hide-text" placeholder="Scan QR Code" oninput="showUserInfo()">
+            <div id="my-qr-reader">
             </div>
-            
-            <div id="user-info">
-                <!-- User data will be displayed here -->
-            </div>
-            <div id="my-qr-reader"></div>
         </div>
-        
     </div>
-    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script
+        src="https://unpkg.com/html5-qrcode">
+    </script>
     <script src="script.js"></script>
 </body>
 
