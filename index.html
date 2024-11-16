@@ -12,12 +12,15 @@
     <div class="container">
         <div class="input-section">
             <label for="qr-scanner">Scan QR Code</label>
-            <div id="qr-scanner" style="width: 300px; height: 300px; border: 1px solid #ccc;"></div>
+            <div id="qr-scanner" style="width: 100%; height: 300px; border: 1px solid #ccc;"></div>
         </div>
 
         <div id="user-info">
             <!-- User data will be displayed here -->
         </div>
+
+        <!-- Button to ask for camera permission -->
+        <button class="btn" onclick="requestCameraPermission()">Enable Camera</button>
 
         <button class="btn" onclick="stopScanner()">Stop Scanner</button>
     </div>
@@ -25,16 +28,36 @@
     <script>
         const qrScanner = new Html5Qrcode("qr-scanner");
 
-        // Function to start the scanner and handle QR code scanning
+        // Function to request camera permission
+        async function requestCameraPermission() {
+            try {
+                console.log("Requesting camera access...");
+                // Try to get media stream (camera) permission
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+
+                // If successful, start the scanner
+                startScanner();
+                
+                // If you want to stop the camera after permission is granted, use:
+                // stream.getTracks().forEach(track => track.stop());
+
+            } catch (err) {
+                console.error("Error accessing camera:", err);
+                document.getElementById("qr-scanner").textContent = "Unable to access the camera. Please check permissions.";
+            }
+        }
+
+        // Function to start the QR scanner
         function startScanner() {
             qrScanner.start(
-                { facingMode: "environment" }, // Use the back camera
+                { facingMode: "environment" }, // Use the back camera if available
                 {
                     fps: 10, // Scans per second
                     qrbox: 250, // Size of the scanning box
                 },
                 (decodedText) => {
                     // On successful scan
+                    console.log("QR Code detected: ", decodedText);
                     document.getElementById("user-info").textContent = `QR Code Data: ${decodedText}`;
                     qrScanner.stop(); // Automatically stop after scanning
                 },
@@ -55,9 +78,6 @@
                 console.error("Error stopping the scanner:", err);
             });
         }
-
-        // Automatically start the scanner when the page loads
-        startScanner();
     </script>
 </body>
 </html>
