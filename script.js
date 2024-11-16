@@ -1,10 +1,10 @@
 // Sample user data (no database, just an array)
 const users = [
-    { id: 1, name: "John Michael Diaz", email: "john@example.com", qr_code_used: false },
-    { id: 2, name: "Janneth Villegas", email: "jane@example.com", qr_code_used: false },
-    { id: 3, name: "Alex Tamayo", email: "alex@example.com", qr_code_used: false },
-    { id: 4, name: "Emily Riverp", email: "emily@example.com", qr_code_used: false },
-    { id: 5, name: "Michael Jackson", email: "michael@example.com", qr_code_used: false }
+    { id: 1, name: "John Michael Diaz", email: "john@example.com" },
+    { id: 2, name: "Janneth Villegas", email: "jane@example.com" },
+    { id: 3, name: "Alex Tamayo", email: "alex@example.com" },
+    { id: 4, name: "Emily Riverp", email: "emily@example.com" },
+    { id: 5, name: "Michael Jackson", email: "michael@example.com" }
 ];
 
 // Function to display the selected user based on QR code scan
