@@ -1,83 +1,29 @@
+<!-- Index.html file -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Scanner</title>
-    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="style.css">
+    <title>QR Code Scanner / Reader
+    </title>
 </head>
+
 <body>
     <div class="container">
-        <div class="input-section">
-            <label for="qr-scanner">Scan QR Code</label>
-            <div id="qr-scanner" style="width: 100%; height: 300px; border: 1px solid #ccc;"></div>
+        <h1>Scan QR Codes</h1>
+        <div class="section">
+            <div id="my-qr-reader">
+            </div>
         </div>
-
-        <div id="user-info">
-            <!-- User data will be displayed here -->
-        </div>
-
-        <!-- Button to ask for camera permission -->
-        <button class="btn" onclick="requestCameraPermission()">Enable Camera</button>
-
-        <button class="btn" onclick="stopScanner()">Stop Scanner</button>
     </div>
-
-    <script>
-        const qrScanner = new Html5Qrcode("qr-scanner");
-
-        // Function to request camera permission
-        async function requestCameraPermission() {
-            try {
-                console.log("Requesting camera access...");
-                // Try to get media stream (camera) permission
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-
-                // If successful, start the scanner
-                startScanner();
-                
-                // If you want to stop the camera after permission is granted, use:
-                // stream.getTracks().forEach(track => track.stop());
-
-            } catch (err) {
-                console.error("Error accessing camera:", err);
-                document.getElementById("qr-scanner").textContent = "Unable to access the camera. Please check permissions.";
-            }
-        }
-
-        // Function to start the QR scanner
-        function startScanner() {
-            qrScanner.start(
-                { facingMode: "environment" }, // Use the back camera if available
-                {
-                    fps: 10, // Scans per second
-                    qrbox: 250, // Size of the scanning box
-                },
-                (decodedText) => {
-                    // On successful scan
-                    console.log("QR Code detected: ", decodedText);
-                    document.getElementById("user-info").textContent = `QR Code Data: ${decodedText}`;
-                    qrScanner.stop(); // Automatically stop after scanning
-                },
-                (errorMessage) => {
-                    // On scan error (optional)
-                    console.log("Scanning error:", errorMessage);
-                }
-            ).catch((err) => {
-                console.error("Error starting the scanner:", err);
-            });
-        }
-
-        // Function to stop the scanner
-        function stopScanner() {
-            qrScanner.stop().then(() => {
-                console.log("Scanner stopped.");
-            }).catch((err) => {
-                console.error("Error stopping the scanner:", err);
-            });
-        }
+    <script
+        src="https://unpkg.com/html5-qrcode">
     </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
