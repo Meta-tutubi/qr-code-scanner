@@ -1,4 +1,3 @@
-// script.js file
 // Sample user data (no database, just an array)
 const users = [
     { id: 1, name: "John Michael Diaz", email: "john@example.com", qr_code_used: false },
@@ -40,6 +39,7 @@ function showUserInfo() {
     }
 }
 
+
 function domReady(fn) {
     if (
         document.readyState === "complete" ||
@@ -53,14 +53,19 @@ function domReady(fn) {
 
 domReady(function () {
 
-    // If found you qr code
+    // If found your qr code
     function onScanSuccess(decodeText, decodeResult) {
-        alert("You Qr is : " + decodeText, decodeResult);
+        // Set the scanned QR code text to the input field
+        document.getElementById("qr-scan").value = decodeText;
+
+        // Call showUserInfo explicitly to display the user information
+        showUserInfo();
     }
 
     let htmlscanner = new Html5QrcodeScanner(
         "my-qr-reader",
-        { fps: 10, qrbos: 250 }
+        { fps: 10, qrbox: 250 }
     );
     htmlscanner.render(onScanSuccess);
+
 });
