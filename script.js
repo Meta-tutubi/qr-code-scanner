@@ -1,6 +1,6 @@
 // script.js file
 
-// Sample user data (no database, just an array)
+// Sample user data (no database, just an array for sampling)
 const users = [
     { id: 1, name: "John Michael Diaz", email: "john@example.com" },
     { id: 2, name: "Janneth Villegas", email: "jane@example.com" },
@@ -9,6 +9,7 @@ const users = [
     { id: 5, name: "Michael Jackson", email: "michael@example.com" }
 ];
 
+// Convert image to text
 function domReady(fn) {
     if (
         document.readyState === "complete" ||
