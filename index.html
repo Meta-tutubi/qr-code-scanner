@@ -1,16 +1,36 @@
-<div class="container">
-    <h1>Scan QR Codes</h1>
-    <div>
-        <input type="text" id="qr-scan" placeholder="Scan QR Code" oninput="showUserInfo()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="style.css">
+    <title>QR Code Scanner / Reader
+    </title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Scan QR Codes</h1>
+        <div>
+            <input type="text" id="qr-scan" placeholder="Scan QR Code" oninput="showUserInfo()">
+        </div>
+        <div class="section">
+            <div id="my-qr-reader"></div>
+        </div>
+        <div id="user-details" class="user-details">
+            <!-- User details will be dynamically added here -->
+            <h2>Scanned User Details:</h2>
+            <p id="user-name">Name: </p>
+            <p id="user-location">Location: </p>
+            <p id="user-email">Email: </p>
+            <p id="user-phone">Phone: </p>
+        </div>
     </div>
-    <div class="section">
-        <div id="my-qr-reader"></div>
-    </div>
-    <div id="user-details" class="user-details" style="display: none;">
-    <h2>Scanned User Details:</h2>
-    <p id="user-name">Name: </p>
-    <p id="user-location">Location: </p>
-    <p id="user-email">Email: </p>
-    <p id="user-phone">Phone: </p>
-</div>
-</div>
+    
+    <script
+        src="https://unpkg.com/html5-qrcode">
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
