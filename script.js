@@ -53,11 +53,12 @@ function domReady(fn) {
 
 domReady(function () {
 
-    
     // If found your qr code
     function onScanSuccess(decodeText, decodeResult) {
     // Set the scanned QR code text to the input field
     document.getElementById("qr-scan").value = decodeText;
+
+    // Call showUserInfo explicitly to display the user information
     showUserInfo();
     }
 
