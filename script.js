@@ -5,7 +5,7 @@ const users = [
     { id: 1, name: "John Michael Diaz", email: "john@example.com", qr_code_used: false },
     { id: 2, name: "Janneth Villegas", email: "jane@example.com", qr_code_used: false },
     { id: 3, name: "Alex Tamayo", email: "alex@example.com", qr_code_used: false },
-    { id: 4, name: "Emily Riverp", email: "emily@example.com", qr_code_used: false },
+    { id: 4, name: "Emily Rivero", email: "emily@example.com", qr_code_used: false },
     { id: 5, name: "Michael Jackson", email: "michael@example.com", qr_code_used: false }
 ];
 
