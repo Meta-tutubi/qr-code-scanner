@@ -2,11 +2,11 @@
 
 // Sample user data (no database, just an array for sampling)
 const users = [
-    { id: 1, name: "John Michael Diaz", email: "john@example.com", qr_code_used: false },
-    { id: 2, name: "Janneth Villegas", email: "jane@example.com", qr_code_used: false },
-    { id: 3, name: "Alex Tamayo", email: "alex@example.com", qr_code_used: false },
-    { id: 4, name: "Emily Rivero", email: "emily@example.com", qr_code_used: false },
-    { id: 5, name: "Michael Jackson", email: "michael@example.com", qr_code_used: false }
+    { id: 1, name: "John Michael Diaz", email: "john@example.com", contact: "09191111111", qr_code_used: false },
+    { id: 2, name: "Janneth Villegas", email: "jane@example.com",  contact: "09192222222",qr_code_used: false },
+    { id: 3, name: "Alex Tamayo", email: "alex@example.com",  contact: "09193333333",qr_code_used: false },
+    { id: 4, name: "Emily Rivero", email: "emily@example.com",  contact: "09194444444",qr_code_used: false },
+    { id: 5, name: "Michael Jackson", email: "michael@example.com",  contact: "09195555555",qr_code_used: false }
 ];
 
 // Function to display the selected user based on QR code scan
@@ -27,6 +27,7 @@ function showUserInfo() {
             <h2>User Information</h2>
             <p><strong>Name:</strong> ${user.name}</p>
             <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.contact}</p>
             <div id="qrcode-${user.id}"></div> <!-- QR code placeholder -->
         `;
 
