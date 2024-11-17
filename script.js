@@ -58,7 +58,7 @@ domReady(function () {
     function onScanSuccess(decodeText, decodeResult) {
     // Set the scanned QR code text to the input field
     document.getElementById("qr-scan").value = decodeText;
-    showUserInfo()
+    showUserInfo();
     }
 
     let htmlscanner = new Html5QrcodeScanner(
